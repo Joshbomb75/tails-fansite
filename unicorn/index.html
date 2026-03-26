@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>✨ Unicorns ✨</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Lato:wght@300;400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a0033 0%, #3d0066 30%, #7b2fa8 60%, #ff69b4 100%);
+      font-family: 'Lato', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Floating sparkles */
+    .sparkles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .sparkle {
+      position: absolute;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: white;
+      animation: float linear infinite;
+      opacity: 0;
+    }
+    @keyframes float {
+      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+      10%  { opacity: 0.8; }
+      90%  { opacity: 0.6; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    .unicorn-emoji {
+      font-size: 120px;
+      display: block;
+      animation: bob 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.8));
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0px) rotate(-3deg); }
+      50%       { transform: translateY(-20px) rotate(3deg); }
+    }
+
+    h1 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      background: linear-gradient(90deg, #ffe0f7, #ffb3e6, #ff69b4, #c678ff, #ffe0f7);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+      margin-top: 20px;
+      letter-spacing: 2px;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 0% }
+      100% { background-position: 200% }
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-top: 14px;
+      color: #f0c0ff;
+      letter-spacing: 1px;
+    }
+
+    /* Facts grid */
+    .facts {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 32px 24px;
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(198, 120, 255, 0.4);
+    }
+    .card-icon { font-size: 2.5rem; margin-bottom: 14px; display: block; }
+    .card h2 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1rem;
+      color: #ffb3e6;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .card p { font-weight: 300; line-height: 1.7; color: #e8d5ff; font-size: 0.95rem; }
+
+    /* Magic bar */
+    .magic-bar {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .magic-bar h2 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1.4rem;
+      color: #ffb3e6;
+      margin-bottom: 24px;
+    }
+    .trait-row { margin-bottom: 16px; text-align: left; }
+    .trait-label { font-size: 0.85rem; color: #f0c0ff; margin-bottom: 6px; display: flex; justify-content: space-between; }
+    .bar-bg { background: rgba(255,255,255,0.1); border-radius: 99px; height: 12px; overflow: hidden; }
+    .bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #ff69b4, #c678ff);
+      animation: grow 1.5s ease-out forwards;
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+    @keyframes grow { to { transform: scaleX(1); } }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 24px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sparkles background -->
+  <div class="sparkles" id="sparkles"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="unicorn-emoji">🦄</span>
+    <h1>Unicorns</h1>
+    <p class="tagline">Creatures of myth. Symbols of magic. Absolutely real in our hearts.</p>
+  </section>
+
+  <!-- Fact cards -->
+  <section class="facts">
+    <div class="card">
+      <span class="card-icon">📜</span>
+      <h2>Ancient Origins</h2>
+      <p>Unicorns appear in ancient Greek writings not as myth, but as natural history — described by Ctesias around 400 BC as wild donkeys with a single horn. The legend has persisted for over 2,400 years.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+      <h2>Scotland's National Animal</h2>
+      <p>Scotland adopted the unicorn as its national animal in the 12th century. In Celtic mythology, the unicorn represents purity, power, and independence — everything Scotland wanted to project to the world.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">✨</span>
+      <h2>Magical Powers</h2>
+      <p>Legends say a unicorn's horn — called an <em>alicorn</em> — could neutralize poison and purify water. Medieval kings paid fortunes for what they believed were real unicorn horns (usually narwhal tusks).</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌈</span>
+      <h2>The Rainbow Connection</h2>
+      <p>The association with rainbows comes from their role as creatures of pure light. In many traditions, seeing a unicorn near a rainbow was the highest omen of good fortune a person could receive.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🦋</span>
+      <h2>Only the Pure May Approach</h2>
+      <p>Medieval folklore held that unicorns could only be tamed by someone pure of heart. They were used as symbols of Christ in Christian iconography and appeared frequently in illuminated manuscripts.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">💎</span>
+      <h2>Modern Legacy</h2>
+      <p>Today, "unicorn" describes any startup valued over $1 billion — because both are rare, magical, and slightly unbelievable. There are currently over 1,200 unicorn companies worldwide.</p>
+    </div>
+  </section>
+
+  <!-- Magic stats -->
+  <div class="magic-bar">
+    <h2>Unicorn Attribute Index</h2>
+    <div class="trait-row">
+      <div class="trait-label"><span>✨ Magic Level</span><span>99%</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:99%;animation-delay:0.1s"></div></div>
+    </div>
+    <div class="trait-row">
+      <div class="trait-label"><span>🌈 Radiance</span><span>95%</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:95%;animation-delay:0.3s"></div></div>
+    </div>
+    <div class="trait-row">
+      <div class="trait-label"><span>⚔️ Horn Sharpness</span><span>88%</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:88%;animation-delay:0.5s"></div></div>
+    </div>
+    <div class="trait-row">
+      <div class="trait-label"><span>🏃 Speed</span><span>92%</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:92%;animation-delay:0.7s"></div></div>
+    </div>
+    <div class="trait-row">
+      <div class="trait-label"><span>💖 Pure of Heart</span><span>100%</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:100%;animation-delay:0.9s"></div></div>
+    </div>
+  </div>
+
+  <footer>✨ Built by Nine &nbsp;·&nbsp; Powered by stardust and caffeine ✨</footer>
+
+  <script>
+    // Generate sparkles
+    const container = document.getElementById('sparkles');
+    const colors = ['#ff69b4','#c678ff','#ffe0f7','#ffffff','#ffb3e6','#90caf9'];
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.width = s.style.height = (Math.random() * 6 + 2) + 'px';
+      s.style.background = colors[Math.floor(Math.random() * colors.length)];
+      s.style.animationDuration = (Math.random() * 8 + 5) + 's';
+      s.style.animationDelay = (Math.random() * 10) + 's';
+      container.appendChild(s);
+    }
+  </script>
+</body>
+</html>
