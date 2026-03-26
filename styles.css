@@ -140,11 +140,16 @@ h1 {
 
 .media-pane {
   align-self: start;
+  aspect-ratio: 280 / 350;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .variant-image {
   width: 100%;
-  max-height: 500px;
+  height: 100%;
   object-fit: contain;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.14);
