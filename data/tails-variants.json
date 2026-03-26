@@ -10,7 +10,7 @@
       "shortLabel": "Classic/Game Canon",
       "continuity": "Sonic game continuity",
       "debut": "Sonic the Hedgehog 2 (1992)",
-      "image": "https://static.wikia.nocookie.net/sonic/images/a/a8/SRCTails.png/revision/latest?cb=20250826092341",
+      "image": "./assets/tails/original-games.webp",
       "imageAlt": "Game-canon Tails character art",
       "bio": "The core version of Miles Prower is Sonic's closest ally and a genius mechanic despite his young age. He combines bravery with a gentle personality, often acting as the team's engineer and pilot. Across the games, he grows from sidekick to dependable hero in his own right.",
       "traits": [
@@ -38,7 +38,7 @@
       "shortLabel": "Sonic X Anime",
       "continuity": "Sonic X anime continuity",
       "debut": "Sonic X Episode 1 (2003)",
-      "image": "https://static.wikia.nocookie.net/sonic/images/5/5f/Tails_5.png/revision/latest?cb=20251103165803",
+      "image": "./assets/tails/sonic-x.webp",
       "imageAlt": "Sonic X series logo",
       "bio": "In Sonic X, Tails keeps his inventor identity but gets extra emotional focus and character-driven episodes. He is thoughtful, sensitive, and loyal, often balancing science-minded logic with deep empathy. His friendship with Cosmo in later arcs gives this version one of the franchise's most heartfelt storylines.",
       "traits": [
@@ -66,7 +66,7 @@
       "shortLabel": "Live-Action Film",
       "continuity": "Paramount film continuity",
       "debut": "Sonic the Hedgehog 2 (2022)",
-      "image": "https://static.wikia.nocookie.net/sonic/images/1/12/Sonic_2_movie_art_3D_Tails.png/revision/latest?cb=20250108050921",
+      "image": "./assets/tails/movie-trilogy.webp",
       "imageAlt": "Sonic the Hedgehog 2 movie poster featuring Tails",
       "bio": "Movie Tails is introduced as a capable young fox who has looked up to Sonic from afar. He arrives with gadgets, tactical know-how, and a sincere desire to help, quickly becoming family rather than just a sidekick. This portrayal leans into his sweetness while giving him cinematic action moments.",
       "traits": [
@@ -94,7 +94,7 @@
       "shortLabel": "IDW Comics",
       "continuity": "Post-Forces comic continuity",
       "debut": "Sonic the Hedgehog #1 (IDW, 2018)",
-      "image": "https://static.wikia.nocookie.net/sonic/images/1/1f/IDW75Cover125.png/revision/latest?cb=20240823143030",
+      "image": "./assets/tails/idw.webp",
       "imageAlt": "Cover of Sonic the Hedgehog #1 from IDW",
       "bio": "IDW's Tails expands on his post-war confidence arc and technical leadership after major game events. He remains gentle and principled, but is written with sharper initiative and field competence. The comics highlight his role in crisis response, science strategy, and moral center moments.",
       "traits": [
@@ -122,7 +122,7 @@
       "shortLabel": "Sonic Prime",
       "continuity": "Shatterverse (New Yoke)",
       "debut": "Sonic Prime (2022)",
-      "image": "https://static.wikia.nocookie.net/sonic/images/5/5e/SRCWNine.png/revision/latest?cb=20260114162926",
+      "image": "./assets/tails/nine.webp",
       "imageAlt": "Sonic Prime logo",
       "bio": "Nine is an alternate-dimensional Tails shaped by isolation and survival in New Yoke City. Unlike mainline Tails, he is distrustful, guarded, and intensely independent, channeling his intellect into defensive technology. His relationship with Sonic becomes one of the most morally complex dynamics in the series.",
       "traits": [
@@ -150,7 +150,7 @@
       "shortLabel": "Sonic Boom",
       "continuity": "Boom continuity",
       "debut": "Sonic Boom: Rise of Lyric (2014)",
-      "image": "https://static.wikia.nocookie.net/sonic/images/5/58/Sonic_Boom_Tails_2.png/revision/latest?cb=20221225101328",
+      "image": "./assets/tails/boom.webp",
       "imageAlt": "Sonic Boom logo",
       "bio": "Boom Tails is a more overtly gadget-driven team tech specialist with a lighter comedic tone. He often acts as mission control and invention source, translating problems into practical tools. The writing gives him playful banter while keeping his heart and loyalty intact.",
       "traits": [
@@ -178,7 +178,7 @@
       "shortLabel": "Archie Era",
       "continuity": "Archie comic continuity",
       "debut": "Sonic the Hedgehog #0 (1993)",
-      "image": "https://static.wikia.nocookie.net/sonic/images/0/09/Youspinmerightroundbaby.png/revision/latest?cb=20161122205454",
+      "image": "./assets/tails/archie.webp",
       "imageAlt": "Archie Sonic logo",
       "bio": "Archie Tails evolves through one of the franchise's longest-running alternate continuities. Depending on era, he is portrayed as a younger sidekick, maturing adventurer, and occasionally central figure in high-concept comic arcs. This version is notable for broad world-building and unique character relationships.",
       "traits": [
