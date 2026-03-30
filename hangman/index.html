@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hangman</title>
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --surface: #17171a;
+      --border: #2a2a30;
+      --accent: #7c6aff;
+      --accent2: #ff6a6a;
+      --text: #e8e8f0;
+      --muted: #6b6b80;
+      --win: #4ade80;
+      --lose: #f87171;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      gap: 24px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    #category-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    /* Gallows */
+    #gallows-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    svg#gallows {
+      width: 200px;
+      height: 220px;
+    }
+
+    svg#gallows line, svg#gallows circle, svg#gallows path {
+      stroke: var(--text);
+      stroke-width: 3;
+      stroke-linecap: round;
+      fill: none;
+      transition: opacity 0.2s;
+    }
+
+    svg#gallows .hidden { opacity: 0; }
+
+    /* Word display */
+    #word-display {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .letter-box {
+      width: 36px;
+      height: 48px;
+      border-bottom: 3px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .letter-box.revealed {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .letter-box.space {
+      border-bottom: none;
+      width: 20px;
+    }
+
+    /* Misses */
+    #misses-display {
+      font-size: 0.9rem;
+      color: var(--muted);
+      min-height: 1.4em;
+    }
+
+    #misses-display span {
+      color: var(--accent2);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    /* Keyboard */
+    #keyboard {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .kb-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .key {
+      width: 40px;
+      height: 44px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+    }
+
+    .key:hover:not(:disabled) {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .key:disabled {
+      cursor: not-allowed;
+      opacity: 0.3;
+    }
+
+    .key.miss {
+      background: #2a1a1a;
+      border-color: var(--lose);
+      color: var(--lose);
+      opacity: 0.5;
+    }
+
+    .key.hit {
+      background: #0f2a1a;
+      border-color: var(--win);
+      color: var(--win);
+      opacity: 0.6;
+    }
+
+    /* Status banner */
+    #status-banner {
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      min-height: 1.6em;
+      transition: opacity 0.3s;
+    }
+
+    #status-banner.win { color: var(--win); }
+    #status-banner.lose { color: var(--lose); }
+
+    /* Buttons */
+    #controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    button.action-btn {
+      padding: 10px 24px;
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    button.action-btn:hover {
+      background: #6050e0;
+      transform: translateY(-1px);
+    }
+
+    #lives-display {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    #lives-display b {
+      color: var(--accent2);
+    }
+  </style>
+</head>
+<body>
+  <h1>☠ Hangman</h1>
+  <div id="category-label">Category: <span id="cat-name">—</span></div>
+
+  <div id="gallows-container">
+    <svg id="gallows" viewBox="0 0 200 220">
+      <!-- Base -->
+      <line x1="20" y1="210" x2="180" y2="210"/>
+      <!-- Pole -->
+      <line x1="60" y1="210" x2="60" y2="20"/>
+      <!-- Top beam -->
+      <line x1="60" y1="20" x2="130" y2="20"/>
+      <!-- Rope -->
+      <line x1="130" y1="20" x2="130" y2="45"/>
+      <!-- Head -->
+      <circle id="p-head" class="hidden" cx="130" cy="60" r="15"/>
+      <!-- Body -->
+      <line id="p-body" class="hidden" x1="130" y1="75" x2="130" y2="130"/>
+      <!-- Left arm -->
+      <line id="p-arm-l" class="hidden" x1="130" y1="85" x2="105" y2="110"/>
+      <!-- Right arm -->
+      <line id="p-arm-r" class="hidden" x1="130" y1="85" x2="155" y2="110"/>
+      <!-- Left leg -->
+      <line id="p-leg-l" class="hidden" x1="130" y1="130" x2="105" y2="165"/>
+      <!-- Right leg -->
+      <line id="p-leg-r" class="hidden" x1="130" y1="130" x2="155" y2="165"/>
+    </svg>
+  </div>
+
+  <div id="lives-display">Lives remaining: <b id="lives-count">6</b></div>
+
+  <div id="word-display"></div>
+
+  <div id="misses-display">Misses: <span id="miss-letters"></span></div>
+
+  <div id="status-banner"></div>
+
+  <div id="keyboard"></div>
+
+  <div id="controls">
+    <button class="action-btn" id="new-game-btn">New Game</button>
+  </div>
+
+  <script>
+    const WORD_BANK = {
+      "Animals":    ["elephant","crocodile","penguin","octopus","butterfly","kangaroo","chimpanzee","flamingo","porcupine","wolverine","armadillo","platypus"],
+      "Countries":  ["australia","canada","ethiopia","indonesia","argentina","portugal","switzerland","cambodia","zimbabwe","malaysia","venezuela","mozambique"],
+      "Foods":      ["avocado","bruschetta","quesadilla","ratatouille","croissant","tiramisu","guacamole","enchilada","stracciatella","jambalaya","bulgogi","baklava"],
+      "Tech":       ["javascript","algorithm","firewall","encryption","kubernetes","blockchain","repository","middleware","hypervisor","concurrency","debugger","recursion"],
+      "Space":      ["supernova","nebula","quasar","exoplanet","asteroid","magnetar","cosmology","blackhole","singularity","lightyear","solarsystem","telescope"],
+      "Movies":     ["inception","gladiator","interstellar","parasite","joker","dune","whiplash","spotlight","oppenheimer","arrival","moonlight","braveheart"],
+    };
+
+    const BODY_PARTS = ['p-head','p-body','p-arm-l','p-arm-r','p-leg-l','p-leg-r'];
+    const MAX_WRONG = BODY_PARTS.length;
+
+    const KB_ROWS = ['qwertyuiop','asdfghjkl','zxcvbnm'];
+
+    let word = '';
+    let category = '';
+    let guessed = new Set();
+    let wrong = 0;
+    let gameOver = false;
+
+    function pickWord() {
+      const cats = Object.keys(WORD_BANK);
+      category = cats[Math.floor(Math.random() * cats.length)];
+      const list = WORD_BANK[category];
+      word = list[Math.floor(Math.random() * list.length)];
+    }
+
+    function buildKeyboard() {
+      const kb = document.getElementById('keyboard');
+      kb.innerHTML = '';
+      KB_ROWS.forEach(row => {
+        const div = document.createElement('div');
+        div.className = 'kb-row';
+        [...row].forEach(ch => {
+          const btn = document.createElement('button');
+          btn.className = 'key';
+          btn.textContent = ch;
+          btn.dataset.letter = ch;
+          btn.addEventListener('click', () => guess(ch));
+          div.appendChild(btn);
+        });
+        kb.appendChild(div);
+      });
+    }
+
+    function renderWord() {
+      const display = document.getElementById('word-display');
+      display.innerHTML = '';
+      [...word].forEach(ch => {
+        const box = document.createElement('div');
+        if (ch === ' ') {
+          box.className = 'letter-box space';
+        } else {
+          box.className = 'letter-box' + (guessed.has(ch) ? ' revealed' : '');
+          box.textContent = guessed.has(ch) ? ch : '';
+        }
+        display.appendChild(box);
+      });
+    }
+
+    function renderGallows() {
+      BODY_PARTS.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (i < wrong) el.classList.remove('hidden');
+        else el.classList.add('hidden');
+      });
+      document.getElementById('lives-count').textContent = MAX_WRONG - wrong;
+    }
+
+    function renderMisses() {
+      const misses = [...guessed].filter(ch => !word.includes(ch));
+      document.getElementById('miss-letters').textContent = misses.join('  ').toUpperCase() || '—';
+    }
+
+    function checkWin() {
+      return [...word].filter(c => c !== ' ').every(c => guessed.has(c));
+    }
+
+    function guess(ch) {
+      if (gameOver || guessed.has(ch)) return;
+      guessed.add(ch);
+
+      const btn = document.querySelector(`.key[data-letter="${ch}"]`);
+
+      if (word.includes(ch)) {
+        if (btn) btn.classList.add('hit');
+      } else {
+        wrong++;
+        if (btn) btn.classList.add('miss');
+      }
+
+      document.querySelectorAll('.key').forEach(b => b.disabled = true);
+      [...guessed].forEach(g => {
+        const b = document.querySelector(`.key[data-letter="${g}"]`);
+        if (b) b.disabled = true;
+      });
+      document.querySelectorAll('.key:not(:disabled)').forEach(b => b.disabled = false);
+
+      renderWord();
+      renderGallows();
+      renderMisses();
+
+      const banner = document.getElementById('status-banner');
+      if (checkWin()) {
+        gameOver = true;
+        banner.textContent = '🎉 You got it!';
+        banner.className = 'win';
+        document.querySelectorAll('.key').forEach(b => b.disabled = true);
+      } else if (wrong >= MAX_WRONG) {
+        gameOver = true;
+        banner.textContent = `💀 The word was: ${word.toUpperCase()}`;
+        banner.className = 'lose';
+        document.querySelectorAll('.key').forEach(b => b.disabled = true);
+        // Reveal the word
+        [...document.getElementById('word-display').children].forEach((box, i) => {
+          if (word[i] !== ' ') { box.textContent = word[i].toUpperCase(); box.classList.add('revealed'); }
+        });
+      }
+    }
+
+    function newGame() {
+      guessed = new Set();
+      wrong = 0;
+      gameOver = false;
+      pickWord();
+      document.getElementById('cat-name').textContent = category;
+      document.getElementById('status-banner').textContent = '';
+      document.getElementById('status-banner').className = '';
+      buildKeyboard();
+      renderWord();
+      renderGallows();
+      renderMisses();
+    }
+
+    document.getElementById('new-game-btn').addEventListener('click', newGame);
+
+    document.addEventListener('keydown', e => {
+      const ch = e.key.toLowerCase();
+      if (/^[a-z]$/.test(ch)) guess(ch);
+    });
+
+    newGame();
+  </script>
+</body>
+</html>
