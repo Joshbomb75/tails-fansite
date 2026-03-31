@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A polished, mobile-friendly fan guide to Tails across Sonic continuities." />
+    <title>Tails Multiverse Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <main class="app">
+      <header class="hero">
+        <p class="eyebrow">Tails Fan Site</p>
+        <h1 id="siteTitle">Miles “Tails” Prower Multiverse</h1>
+        <p id="siteTagline" class="tagline">Loading variants…</p>
+      </header>
+
+      <section class="nav-wrap" aria-label="Tails variant selector">
+        <label for="variantSelect" class="sr-only">Choose a variant</label>
+        <select id="variantSelect" class="variant-select"></select>
+        <nav id="variantNav" class="variant-nav" aria-label="Variants"></nav>
+      </section>
+
+      <article id="variantCard" class="card" aria-live="polite"></article>
+
+      <footer class="footer">
+        <p>Made for fans · Unofficial tribute site</p>
+      </footer>
+    </main>
+
+    <template id="variantTemplate">
+      <div class="card-grid">
+        <div class="media-pane">
+          <img class="variant-image" src="" alt="" loading="lazy" />
+        </div>
+
+        <div class="content-pane">
+          <div class="title-row">
+            <h2 class="variant-name"></h2>
+            <span class="chip continuity"></span>
+          </div>
+
+          <p class="meta"></p>
+          <p class="bio"></p>
+
+          <section>
+            <h3>Key traits & differences</h3>
+            <ul class="traits"></ul>
+          </section>
+
+          <section>
+            <h3>Appearance differences</h3>
+            <p class="appearance"></p>
+          </section>
+
+          <section>
+            <h3>Media details</h3>
+            <p class="media"></p>
+          </section>
+
+          <section>
+            <h3>Relevant links</h3>
+            <ul class="links"></ul>
+          </section>
+        </div>
+      </div>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

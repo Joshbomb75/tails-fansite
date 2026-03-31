@@ -1,0 +1,173 @@
+{
+  "variants": [
+    {
+      "id": "classic",
+      "name": "Tails",
+      "subtitle": "Original Sonic Series",
+      "year": "1992–Present",
+      "media": "Video Games (Sonic 2 onwards)",
+      "image": "🦊",
+      "color": "#FF9900",
+      "bio": "Miles Prower, better known as Tails, is Sonic's best friend and closest ally. Originally a young fox bullied for his twin tails, he discovered he could use them as a helicopter to fly. Tails is a brilliant inventor and engineer who loyally follows Sonic on adventures to save the world.",
+      "traits": [
+        "Two tails used for flight/propulsion",
+        "Genius-level intellect",
+        "Loyal and supportive companion",
+        "Confident despite humble origins",
+        "Piloting and inventing skills",
+        "Yellow/cream fur with white belly"
+      ],
+      "appearance": "Bright yellow fox with two large, fluffy white-tipped tails. Blue shoes with rocket jets. Classic friendly expression.",
+      "mediaDetails": {
+        "firstAppearance": "Sonic the Hedgehog 2 (1992)",
+        "developer": "Sonic Team / Various",
+        "platforms": "Multi-platform (Sega Genesis onwards, modern consoles)"
+      },
+      "links": [
+        { "text": "Sonic Wiki", "url": "https://sonic.fandom.com/wiki/Miles_%22Tails%22_Prower" },
+        { "text": "Official Sonic Site", "url": "https://www.sonicthehedgehog.com" }
+      ]
+    },
+    {
+      "id": "sonic-x",
+      "name": "Tails",
+      "subtitle": "Sonic X Anime",
+      "year": "2003–2006",
+      "media": "Anime",
+      "image": "🦊",
+      "color": "#FFA500",
+      "bio": "In the Sonic X anime, Tails arrives on Earth alongside Sonic and becomes more tech-savvy than ever. He remains Sonic's closest friend but gains more depth, dealing with typical teenage issues while helping save both worlds. His friendship with Sonic is the emotional core of the series.",
+      "traits": [
+        "Advanced technology and hacking skills",
+        "More humanized personality",
+        "Tech-savvy and strategic thinker",
+        "Deals with friendship and belonging",
+        "Inventor of advanced devices",
+        "Athletic and brave fighter"
+      ],
+      "appearance": "Similar to classic Tails but slightly more anime-styled. Yellow with two tails, expressive eyes, modern clothing updates.",
+      "mediaDetails": {
+        "firstAppearance": "Sonic X Episode 1 (2003)",
+        "studio": "TMS Entertainment",
+        "episodes": "78 total"
+      },
+      "links": [
+        { "text": "Sonic X Wiki", "url": "https://sonic.fandom.com/wiki/Sonic_X" },
+        { "text": "MyAnimeList", "url": "https://myanimelist.net/anime/1816/Sonic_X" }
+      ]
+    },
+    {
+      "id": "idw-comics",
+      "name": "Tails",
+      "subtitle": "IDW Comics",
+      "year": "2018–Present",
+      "media": "Comics",
+      "image": "🦊",
+      "color": "#FF8C00",
+      "bio": "IDW's Tails is a multifaceted hero who often leads missions independently. He grapples with self-doubt and perfectionism while proving himself as a capable leader and tactician. His relationship with Sonic evolves to show mutual respect and partnership, not just sidekick dynamics.",
+      "traits": [
+        "Independent leader and strategist",
+        "Technical genius with self-doubt",
+        "Complex emotional depth",
+        "Capable in combat and intellect",
+        "Struggles with perfectionism",
+        "Values friendship above all"
+      ],
+      "appearance": "Classic Tails design with comic book style. Yellow fox with twin tails, expressive features, heroic proportions.",
+      "mediaDetails": {
+        "publisher": "IDW Publishing",
+        "startDate": "April 2018",
+        "format": "Ongoing monthly series"
+      },
+      "links": [
+        { "text": "IDW Sonic Comics", "url": "https://www.idwpublishing.com/sonic-the-hedgehog/" },
+        { "text": "Sonic Comics Wiki", "url": "https://sonic.fandom.com/wiki/Sonic_the_Hedgehog_(IDW)" }
+      ]
+    },
+    {
+      "id": "movie-trilogy",
+      "name": "Tails",
+      "subtitle": "Sonic Movie Trilogy",
+      "year": "2022–2024",
+      "media": "Live-Action/CGI Films",
+      "image": "🦊",
+      "color": "#FF6B00",
+      "bio": "In the live-action Sonic movies, Tails is portrayed as a brave adventurer from another dimension. He becomes Sonic's trusted ally and proves himself despite being underestimated. His journey from uncertain newcomer to confident hero mirrors his comic counterparts.",
+      "traits": [
+        "Brave despite inexperience",
+        "Loyal and determined",
+        "Skilled with gadgets and flight",
+        "Friendly and optimistic",
+        "Proves himself through action",
+        "Dimensional traveler"
+      ],
+      "appearance": "CGI-rendered realistic fox with two tails. Orange/yellow fur, expressive eyes, movie-accurate proportions with tech gear.",
+      "mediaDetails": {
+        "firstAppearance": "Sonic the Hedgehog 2 (2022)",
+        "actor": "Colleen Villard (voice)",
+        "studios": "Paramount Pictures, Sega"
+      },
+      "links": [
+        { "text": "Sonic Movie Wiki", "url": "https://sonic.fandom.com/wiki/Sonic_the_Hedgehog_(film_series)" },
+        { "text": "IMDb", "url": "https://www.imdb.com/title/tt8017342/" }
+      ]
+    },
+    {
+      "id": "sonic-prime",
+      "name": "Nine",
+      "subtitle": "Sonic Prime (The Chaos Council)",
+      "year": "2022–2024",
+      "media": "Netflix Animated Series",
+      "image": "🦊",
+      "color": "#00BFFF",
+      "bio": "Nine is Tails from a cybernetic post-apocalyptic dimension, having been experimented on and enhanced with technology. Bitter from betrayal and isolation, Nine becomes a tech-enhanced villain who mirrors what Tails could become without friendship. His arc explores themes of isolation versus connection.",
+      "traits": [
+        "Cybernetic enhancements",
+        "Advanced AI integration",
+        "Brilliant but isolated",
+        "Bitter from betrayal",
+        "Tech-focused thinker",
+        "Complex villain/anti-hero character",
+        "Blue color scheme"
+      ],
+      "appearance": "Tails with heavy cybernetic modifications and a blue color scheme. Metallic enhancements, futuristic tech aesthetic, serious expression contrasting with typical Tails.",
+      "mediaDetails": {
+        "firstAppearance": "Sonic Prime (2022)",
+        "network": "Netflix",
+        "seasons": "2+ seasons"
+      },
+      "links": [
+        { "text": "Sonic Prime Wiki", "url": "https://sonic.fandom.com/wiki/Sonic_Prime" },
+        { "text": "Netflix Series", "url": "https://www.netflix.com/title/" }
+      ]
+    },
+    {
+      "id": "boom",
+      "name": "Tails",
+      "subtitle": "Sonic Boom (TV Series)",
+      "year": "2014–2017",
+      "media": "Cartoon Network Animated Series",
+      "image": "🦊",
+      "color": "#FFB347",
+      "bio": "Sonic Boom's Tails is a comedic, often anxious inventor who frequently creates gadgets that backfire. He provides comic relief while remaining deeply loyal to Sonic. Despite his mishaps, he's a capable fighter and good friend who cares deeply about his team.",
+      "traits": [
+        "Comedic and accident-prone",
+        "Anxious but brave",
+        "Gadget inventor (often malfunctions)",
+        "Loyal team member",
+        "Athletic and strong",
+        "Humorous personality"
+      ],
+      "appearance": "Simplified cartoon style with exaggerated features. Yellow fox with two tails, big expressive eyes, friendly demeanor.",
+      "mediaDetails": {
+        "network": "Cartoon Network",
+        "seasons": "3",
+        "episodes": "104"
+      },
+      "links": [
+        { "text": "Sonic Boom Wiki", "url": "https://sonic.fandom.com/wiki/Sonic_Boom" },
+        { "text": "Cartoon Network", "url": "https://www.cartoonnetwork.com/" }
+      ]
+    }
+  ]
+}
