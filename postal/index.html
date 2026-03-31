@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USPS Info Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .usps-logo {
+            font-size: 3em;
+            margin: 10px 0;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+        
+        .card p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        
+        .quick-links {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .quick-links h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .link-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .quick-links a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .quick-links a:hover {
+            background: #764ba2;
+        }
+        
+        .info-section {
+            background: #fffbea;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .info-section h3 {
+            color: #ff9800;
+            margin-bottom: 10px;
+        }
+        
+        .info-section p {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .link-group {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="usps-logo">📮</div>
+            <h1>USPS Info Hub</h1>
+            <p class="subtitle">Everything you need to know about the United States Postal Service</p>
+        </header>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>📊 About USPS</h3>
+                <p>The United States Postal Service (USPS) is an independent agency of the executive branch of the U.S. federal government responsible for providing postal service in the U.S. Founded in 1971, it serves over 160 million delivery locations across the country.</p>
+            </div>
+            
+            <div class="card">
+                <h3>🚚 Service Types</h3>
+                <p><strong>First-Class Mail:</strong> Letters and small packages. <strong>Priority Mail:</strong> 1-3 day delivery. <strong>Priority Mail Express:</strong> Overnight to 2-day delivery. <strong>Media Mail:</strong> Books and educational materials at lower cost.</p>
+            </div>
+            
+            <div class="card">
+                <h3>💰 Pricing</h3>
+                <p>USPS offers competitive rates for mail and parcels. Stamps start at $0.68 for First-Class Mail. Flat-rate boxes available for predictable shipping costs. Free shipping supplies (boxes, labels, tape) available online.</p>
+            </div>
+            
+            <div class="card">
+                <h3>⏱️ Delivery Times</h3>
+                <p><strong>First-Class:</strong> 1-3 business days. <strong>Priority:</strong> 1-3 days. <strong>Priority Express:</strong> Next day/2 days. Times vary by destination. Track your package anytime online.</p>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3>🌟 Did You Know?</h3>
+            <p>USPS is the only delivery service required by law to reach every address in the U.S., including remote areas and territories. They deliver to over 160 million addresses, 6 days a week, rain or shine!</p>
+        </div>
+        
+        <div class="quick-links">
+            <h3>🔗 Quick Links</h3>
+            <div class="link-group">
+                <a href="https://www.usps.com" target="_blank">USPS Official Site</a>
+                <a href="https://tools.usps.com/go/TrackConfirmAction" target="_blank">Track a Package</a>
+                <a href="https://www.usps.com/ship/" target="_blank">Ship Online</a>
+                <a href="https://www.usps.com/business/" target="_blank">Business Solutions</a>
+                <a href="https://www.usps.com/help/" target="_blank">Help & Support</a>
+                <a href="https://www.usps.com/store/" target="_blank">Buy Stamps</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>USPS Info Hub | Powered by automation, not just chat | Last updated: March 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
